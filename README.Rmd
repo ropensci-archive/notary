@@ -1,0 +1,39 @@
+---
+output: rmarkdown::github_document
+---
+
+`notary` : ...
+
+The following functions are implemented:
+
+### Installation
+
+```{r eval=FALSE}
+devtools::install_github("hrbrmstr/notary")
+```
+
+```{r message=FALSE, warning=FALSE, error=FALSE, include=FALSE}
+options(width=120)
+```
+
+### Usage
+
+```{r message=FALSE, warning=FALSE, error=FALSE}
+library(notary)
+
+# current verison
+packageVersion("notary")
+
+```
+
+### Test Results
+
+```{r message=FALSE, warning=FALSE, error=FALSE}
+library(notary)
+library(testthat)
+
+date()
+
+test_dir("tests/")
+```
+
