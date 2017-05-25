@@ -1,13 +1,13 @@
 Package: notary
 Type: Package
-Title: notary title goes here otherwise CRAN checks fail
+Title: Signing and Verification of R Packages
 Version: 0.1.0
 Date: 2017-05-25
 Author: Bob Rudis (bob@rud.is)
 Maintainer: Bob Rudis <bob@rud.is>
-Description: Package notary description goes here otherwise CRAN checks fail
-URL: https://github.com/hrbrmstr/notary
-BugReports: https://github.com/hrbrmstr/notary/issues
+Description: Signing and Verification of R Packages
+URL: https://github.com/ropenscilabs/notary
+BugReports: https://github.com/ropenscilabs/notary/issues
 License: AGPL
 Suggests:
     testthat,
@@ -15,5 +15,5 @@ Suggests:
 Depends:
     R (>= 3.2.0)
 Imports:
-    purrr
+    gpg
 RoxygenNote: 6.0.1

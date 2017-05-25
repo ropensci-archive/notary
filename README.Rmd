@@ -2,38 +2,8 @@
 output: rmarkdown::github_document
 ---
 
-`notary` : ...
+`notary` : Signing and Verification of R Packages
 
-The following functions are implemented:
+### Code of Coduct
 
-### Installation
-
-```{r eval=FALSE}
-devtools::install_github("hrbrmstr/notary")
-```
-
-```{r message=FALSE, warning=FALSE, error=FALSE, include=FALSE}
-options(width=120)
-```
-
-### Usage
-
-```{r message=FALSE, warning=FALSE, error=FALSE}
-library(notary)
-
-# current verison
-packageVersion("notary")
-
-```
-
-### Test Results
-
-```{r message=FALSE, warning=FALSE, error=FALSE}
-library(notary)
-library(testthat)
-
-date()
-
-test_dir("tests/")
-```
-
+Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.

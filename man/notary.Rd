@@ -4,9 +4,9 @@
 \name{notary}
 \alias{notary}
 \alias{notary-package}
-\title{A package to ...}
+\title{Signing and Verification of R Packages}
 \description{
-A package to ...
+Signing and Verification of R Packages
 }
 \author{
 Bob Rudis (bob@rud.is)
