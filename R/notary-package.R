@@ -3,5 +3,5 @@
 #' @name notary
 #' @docType package
 #' @author Bob Rudis (bob@@rud.is)
-#' @import gpg
+#' @import gpg httr remotes
 NULL

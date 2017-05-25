@@ -4,6 +4,28 @@ output: rmarkdown::github_document
 
 `notary` : Signing and Verification of R Packages
 
+### Methods
+
+- `install_release`:	Validate that the current release is signed and install it if so
+- `validate_release`:	Validate that the latest release of a GitHub pacakge is
+
+### Usage
+
+```{r}
+library(notary)
+
+validate_release("hrbrmstr/hrbrthemes")
+
+validate_release("ironholds/rgeolocate")
+```
+
+```{r echo=FALSE, eval=FALSE}
+install_release("hrbrmstr/hrbrthemes")
+
+# fails
+install_release("ironholds/rgeolocate")
+```
+
 ### Code of Coduct
 
 Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.

@@ -8,12 +8,14 @@ Maintainer: Bob Rudis <bob@rud.is>
 Description: Signing and Verification of R Packages
 URL: https://github.com/ropenscilabs/notary
 BugReports: https://github.com/ropenscilabs/notary/issues
-License: AGPL
+License: MIT
 Suggests:
     testthat,
     covr
 Depends:
     R (>= 3.2.0)
 Imports:
-    gpg
+    gpg,
+    httr,
+    remotes
 RoxygenNote: 6.0.1

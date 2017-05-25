@@ -1,6 +1,7 @@
-context("basic functionality")
-test_that("we can do something", {
+context("validate release works")
+test_that("validate works", {
 
-  #expect_that(some_function(), is_a("data.frame"))
+  expect_equal(validate_release("hrbrmstr/hrbrthemes"), TRUE)
+  expect_equal(validate_release("ironholds/rgeolocate"), FALSE)
 
 })
