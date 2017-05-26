@@ -61,3 +61,4 @@ make_tests <- function(path = "notary-repos", key = "keys/key") {
 TEST_PATH <- "notary-repos"
 TEST_URL <- "https://ropenscilabs.github.io/notary-repos"
 PUBKEY <- "keys/pub"
+Sys.setenv(R_TESTS = "")
