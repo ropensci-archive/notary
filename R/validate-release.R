@@ -59,8 +59,9 @@ validate_release <- function(repo, verbose = TRUE) {
 
   sig_verified_by_github <- identical(verification_info$commit$verification$verified, TRUE)
 
-  list(
+  list (
     verified = sig_verified_by_github,
-    signature = sig_result
+    signature = sig_result,
+    payload = verification_info$commit$verification$payload
   )
 }

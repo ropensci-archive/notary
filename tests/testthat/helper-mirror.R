@@ -1,5 +1,13 @@
-## Mirror a subsection of CRAN
-make_local_cran <- function(path = "local_cran") {
+make_keys <- function(path = "keys") {
+  dir.create(path, FALSE, TRUE)
+  writeBin(pubkey, file.path(path, "pub"))
+  writeBin(key, file.path(path, "key"))
+}
+
+## Mirror a subsection of CRAN.  At the moment I am using just R6
+## because it's small and has zero dependencies and no compiled code.
+## We will need to build this out though.
+make_local_cran <- function(path = "local_cran", key = "keys/key") {
   repo <- "https://cran.rstudio.com"
   packages <- "R6"
   on.exit(unlink(path, recursive = TRUE))
@@ -13,16 +21,36 @@ make_local_cran <- function(path = "local_cran") {
   tools::write_PACKAGES(dest, type = "source")
   file.remove(file.path(dest, "PACKAGES.gz"))
 
-  key <- sodium::sig_keygen()
-  pubkey <- sodium::sig_pubkey(key)
-
-  dir.create("keys", FALSE, TRUE)
-  writeBin(pubkey, "keys/pub")
-  writeBin(key, "keys/key")
-
   idx <- file.path(dest, "PACKAGES")
   msg <- readBin(idx, raw(), file.size(idx))
-  sig <- sodium::sig_sign(msg, key)
+  sig <- sodium::sig_sign(msg, read_bin(key))
   writeBin(sig, paste0(idx, ".sig"))
   on.exit()
+}
+
+copy_directory <- function(from, to) {
+  dir.create(to, FALSE, TRUE)
+  file.copy(dir(from, full.names = TRUE), to, recursive = TRUE)
+}
+
+make_tests <- function(path = "notary-repos") {
+  unlink(path, recursive = TRUE)
+  base <- file.path(path, "base")
+  make_local_cran(base)
+
+  ## Break the index:
+  index <- file.path(path, "index")
+  index_pkg <- file.path(base, "src", "contrib", "PACKAGES")
+  copy_directory(base, index)
+  d <- read.dcf(index_pkg)
+  d[d[, "Package"] == "R6", "MD5sum"] <- strrep("a", 32)
+  write.dcf(d, index_pkg)
+
+  ## Break the file:
+  file <- file.path(path, "file")
+  copy_directory(base, file)
+  pkg <- dir(file.path(file, "src", "contrib"), pattern = "^R6_",
+             full.names = TRUE)
+  dat <- read_bin(pkg)
+  writeBin(c(dat, as.raw(0)), pkg)
 }
