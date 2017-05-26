@@ -37,7 +37,7 @@ package_index_add_hash <- function(path) {
 
 package_index_sign <- function(path, key) {
   for (p in file.path(path, c("PACKAGES", "PACKAGES.gz", "PACKAGES.rds"))) {
-    sign_file(path, key)
+    sign_file(p, key)
   }
 }
 
