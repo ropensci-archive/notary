@@ -12,7 +12,8 @@
 #' kb_file_exists("/hrbrmstr/cran/PACKAGES.gz")
 #' kb_file_exists("/hrbrmstr/cran/PACKAGES.rds")
 #' }
-kb_file_exists <- function(x) {
+kb_file_exists <- function(path) {
+  x <- path
 
   x <- sub("^/", "", x)
 

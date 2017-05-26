@@ -4,7 +4,7 @@
 \alias{kb_file_exists}
 \title{Check to see if a file exists under a users Keybase public folder}
 \usage{
-kb_file_exists(x)
+kb_file_exists(path)
 }
 \arguments{
 \item{path}{file path for existence test}

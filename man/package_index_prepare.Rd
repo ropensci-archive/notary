@@ -9,6 +9,8 @@ package_index_prepare(path, key)
 \arguments{
 \item{path}{Directory that contains a \code{PACKAGES} file and a
 set of packages.}
+
+\item{key}{Path or contents of private key}
 }
 \description{
 Prepare a package index for use with notary; computes and adds MD5

@@ -4,6 +4,7 @@
 ##' @title Prepare a package index
 ##' @param path Directory that contains a \code{PACKAGES} file and a
 ##'   set of packages.
+##' @param key Path or contents of private key
 ##' @export
 package_index_prepare <- function(path, key) {
   package_index_add_hash(path)
