@@ -5,6 +5,18 @@
 ## preference.  If one fails it tries to grab the next one.  The
 ## resulting data ends up with a `Repository` field added so we need
 ## to reset that too.
+
+##' Download verified package indices
+##' @title Download verified package indices
+##' @param contriburl URL of the contrib section of the repository
+##' @param method Ignored, but included for compatibility with
+##'   \code{available.packages}
+##' @param fields See \code{available.packages}
+##' @param type The type of package
+##' @param filters See \code{available.packages}
+##' @param repos Repositories
+##' @param pubkey Path or contents of public key
+##' @export
 available_packages <- function(contriburl = contrib.url(repos, type),
                                method, fields = NULL,
                                type = getOption("pkgType"),
