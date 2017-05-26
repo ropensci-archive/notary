@@ -87,19 +87,18 @@ print.notify_verify <- function(x, ...) {
       Committer: %s <%s>
 GitHub Verified: %s
 GPG Fingerprint: %s
+   Trusted peer: %s
       Timestamp: %s
-           Hash: %s
-Public Key Type: %s
-        Trusted: %s\n",
+      Algorithm: %s + %s\n",
            x$repo,
            x$tag,
            x$committer$name, x$committer$email,
            x$verified %||% FALSE,
            x$signature$fingerprint %||% "",
+           x$signature$success %||% "",
            x$signature$timestamp %||% "",
-           x$signature$hash %||% "",
            x$signature$pubkey %||% "",
-           x$signature$success %||% ""
+           x$signature$hash %||% ""
         )
      )
 
