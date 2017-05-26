@@ -18,14 +18,14 @@ test_that("file://, tampered index", {
                "Signature verification failed")
 })
 
-test_that("http://, all clear", {
+test_that("https://, all clear", {
   url <- file.path(TEST_URL, "base", "src", "contrib")
   cmp <- available.packages(url)
   d <- available_packages(url, pubkey = PUBKEY)
   expect_identical(d, cmp)
 })
 
-test_that("http://, tampered index", {
+test_that("https://, tampered index", {
   url <- file.path(TEST_URL, "index", "src", "contrib")
   cmp <- available.packages(url)
   expect_error(available_packages(url, pubkey = PUBKEY),
