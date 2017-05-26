@@ -6,7 +6,7 @@
 \usage{
 download_packages(pkgs, destdir, available = NULL,
   repos = getOption("repos"), contriburl = contrib.url(repos, type), method,
-  type = getOption("pkgType"), ..., pubkey)
+  type = getOption("pkgType"), ..., pubkey = NULL)
 }
 \arguments{
 \item{pkgs}{Character vector of packages to download}
@@ -30,6 +30,8 @@ install.}
 \item{...}{Additional arguments passed through to
 \code{utils::download.packages} (and from there through to
 \code{download.file}.}
+
+\item{pubkey}{Public key used to verify the package index}
 }
 \description{
 Version of \code{download.file} that verifies downloads.  All

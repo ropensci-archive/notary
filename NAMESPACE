@@ -3,6 +3,7 @@
 S3method(print,notify_verify)
 export(download_packages)
 export(get_tags)
+export(install_packages)
 export(install_release)
 export(kb_file_exists)
 export(retrieve_release_signature)

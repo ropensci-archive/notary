@@ -4,5 +4,4 @@
 .Ruserdata
 .DS_Store
 tests/testthat/local_cran
-tests/testthat/keys
 tests/testthat/notary-repos
