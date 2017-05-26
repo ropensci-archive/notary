@@ -5,3 +5,4 @@
 ^\.travis\.yml$
 ^README\.Rmd$
 ^notary\.svg$
+^notary\.png$
