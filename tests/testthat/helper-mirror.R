@@ -33,6 +33,9 @@ make_tests_cran <- function(path = "notary-repos", key = "keys/key") {
   base <- file.path(path, "base")
   unlink(base, recursive = TRUE)
   make_local_cran(base, key)
+  ## TODO: need to fix package for 3.4 and work out how to test
+  ## regressions here.
+  file.remove(file.path(base, "src", "contrib", "PACKAGES.rds"))
 
   ## Break the index:
   index <- file.path(path, "index")
@@ -45,7 +48,7 @@ make_tests_cran <- function(path = "notary-repos", key = "keys/key") {
   d[i, "SHA256"] <- strrep("a", 64)
   write.dcf(d, index_pkg)
   file.remove(paste0(index_pkg, ".gz"))
-  file.remove(paste0(index_pkg, ".rds"))
+  ## file.remove(paste0(index_pkg, ".rds")) # restore when above is fixed
 
   ## Break the file:
   file <- file.path(path, "file")
