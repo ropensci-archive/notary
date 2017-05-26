@@ -12,10 +12,17 @@ make_local_cran <- function(path = "local_cran") {
   ## this works with existing tooling.
   tools::write_PACKAGES(dest, type = "source")
   file.remove(file.path(dest, "PACKAGES.gz"))
-  on.exit()
-}
 
-file_url <- function(path) {
-  full_path <- normalizePath(path, winslash = "/")
-  paste0("file://", if (substr(full_path, 1, 1) == "/") "" else "/", full_path)
+  key <- sodium::sig_keygen()
+  pubkey <- sodium::sig_pubkey(key)
+
+  dir.create("keys", FALSE, TRUE)
+  writeBin(pubkey, "keys/pub")
+  writeBin(key, "keys/key")
+
+  idx <- file.path(dest, "PACKAGES")
+  msg <- readBin(idx, raw(), file.size(idx))
+  sig <- sodium::sig_sign(msg, key)
+  writeBin(sig, paste0(idx, ".sig"))
+  on.exit()
 }

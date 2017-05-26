@@ -1,8 +1,8 @@
 install_packages <- function(...) {
   f <- utils::install.packages
-  body(f) <- substitute_(body(utils::install.packages),
-                         list(download.packages =
-                                quote(notary::download_packages)))
+  subs <- list(download.packages = quote(notary::download_packages),
+               available.packages = quote(notary::available_packages))
+  body(f) <- substitute_(body(utils::install.packages), subs)
   f(...)
 }
 
@@ -31,15 +31,17 @@ install_packages <- function(...) {
 download_packages <- function(pkgs, destdir, available = NULL,
                               repos = getOption("repos"),
                               contriburl = contrib.url(repos, type),
-                              method, type = getOption("pkgType"), ...) {
+                              method, type = getOption("pkgType"), ...,
+                              pubkey) {
   ## Issues: this will not do well if there is more than one version
   ## for a package because we have to mimic what download.packages
   ## actually does.  If that *is* what we do this probably moves way
   ## from mimicing an interface to using actual code in which case we
   ## need to be careful with licence and copyright.
   if (is.null(available)) {
-    available <- utils::available.packages(contriburl = contriburl,
-                                           method = method)
+    available <- available_packages(contriburl = contriburl,
+                                    method = method,
+                                    pubkey = pubkey)
   }
   ret <- utils::download.packages(pkgs, destdir, available, repos, contriburl,
                                   method, type)
