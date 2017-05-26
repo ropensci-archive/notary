@@ -41,7 +41,8 @@ package_index_sign <- function(path, key) {
 }
 
 sha256sum <- function(x, named = TRUE) {
-  vapply(x, function(f) as.character(openssl::sha256(read_bin(x))),
+  vapply(x, function(f) paste0(as.character(sodium::sha256(read_bin(x))),
+                               collapse = ""),
          character(1), USE.NAMES = named)
 }
 
