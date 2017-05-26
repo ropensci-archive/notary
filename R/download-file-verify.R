@@ -3,7 +3,7 @@ download_file_verify <- function(url, destfile, pubkey, ...) {
     stop("Expected a 32 byte pubk")
   }
   protocol <- uri_protocol(url)
-  pubkey <- get_sodium_pubkey(pubkey)
+  pubkey <- get_sodium_pubkey(pubkey) # Fail early here
   if (protocol == "https") {
     path_sig <- tempfile()
     method <- "libcurl"
@@ -32,14 +32,34 @@ download_file_verify <- function(url, destfile, pubkey, ...) {
   withCallingHandlers(sodium::sig_verify(contents, sig, pubkey),
                       error = function(e) stop(verification_error(e)))
   invisible(destfile)
+}
+
+verify_uri <- function(uri, pubkey = NULL, verbose = FALSE) {
+  protocol <- uri_protocol(uri, TRUE)
+  if (protocol == "https") {
+    file <- download_file_verify(uri, tempfile(), pubkey, verbose = verbose)
+  } else if (protocol == "file") {
+    file <- file_unurl(uri)
+    verify_file(file, paste0(file, ".sig"), pubkey)
+  } else if (protocol == "") {
+    file <- uri
+    verify_file(file, paste0(file, ".sig"), pubkey)
+  } else {
+    stop("Invalid protocol")
   }
+  file
+}
+
+verify_file <- function(file, file_sig, pubkey) {
+  pubkey <- get_sodium_pubkey(pubkey)
+  sig <- read_bin(file_sig)
+  contents <- read_bin(file)
+  withCallingHandlers(sodium::sig_verify(contents, sig, pubkey),
+                      error = function(e) stop(verification_error(e)))
+}
 
 download_file <- function(url, ..., dest = tempfile(),
                           verbose = FALSE, overwrite = FALSE) {
-  ## oo <- options(warnPartialMatchArgs = FALSE)
-  ## if (isTRUE(oo$warnPartialMatchArgs)) {
-  ##   on.exit(options(oo))
-  ## }
   content <- httr::GET(url,
                        httr::write_disk(dest, overwrite),
                        if (verbose) httr::progress("down"), ...)
@@ -50,10 +70,14 @@ download_file <- function(url, ..., dest = tempfile(),
   dest
 }
 
-uri_protocol <- function(x) {
+uri_protocol <- function(x, allow_non_uri = FALSE) {
   re <- "^([a-z]+)://.*$"
   if (!grepl(re, x)) {
-    stop("Can't determine protocol")
+    if (allow_non_uri) {
+      return("")
+    } else {
+      stop("Can't determine protocol")
+    }
   }
   sub("^([a-z]+)://.*$", "\\1", x)
 }

@@ -29,7 +29,7 @@ copy_directory <- function(from, to) {
   invisible(to)
 }
 
-make_tests <- function(path = "notary-repos", key = "keys/key") {
+make_tests_cran <- function(path = "notary-repos", key = "keys/key") {
   base <- file.path(path, "base")
   unlink(base, recursive = TRUE)
   make_local_cran(base, key)
@@ -56,6 +56,22 @@ make_tests <- function(path = "notary-repos", key = "keys/key") {
   dat <- read_bin(pkg)
   writeBin(c(dat, as.raw(0)), pkg)
   path
+}
+
+make_tests_source <- function(path = "notary-repos", key = "keys/key") {
+  dest <- file.path(path, "source")
+  unlink(dest, recursive = TRUE)
+  dir.create(dest, FALSE, TRUE)
+  writeLines("a <- 1", file.path(dest, "example.R"))
+  writeLines("a <- 2", file.path(dest, "example-tampered.R"))
+  sign_file(file.path(dest, "example.R"), key)
+  file.copy(file.path(dest, "example.R.sig"),
+            file.path(dest, "example-tampered.R.sig"))
+}
+
+make_tests <- function(...) {
+  make_tests_cran(...)
+  make_tests_source(...)
 }
 
 TEST_PATH <- "notary-repos"
