@@ -50,17 +50,17 @@ validate_release <- function(repo, verbose = TRUE) {
 
   verification_info <- httr::content(res)
 
-  if ((length(verification_info$commit$verification$verified) > 0) &&
-      verification_info$commit$verification$verified == TRUE) {
-
-    message(str(verification_info$commit$verification))
-
-    return(TRUE)
-
-  } else {
-
-    return(FALSE)
-
+  sig_result <- if(length(verification_info$commit$verification$signature)){
+    gpg::gpg_verify(
+      charToRaw(verification_info$commit$verification$signature),
+      charToRaw(verification_info$commit$verification$payload),
+      error = FALSE)
   }
 
+  sig_verified_by_github <- identical(verification_info$commit$verification$verified, TRUE)
+
+  list(
+    verified = sig_verified_by_github,
+    signature = sig_result
+  )
 }

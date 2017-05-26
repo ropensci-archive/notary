@@ -11,7 +11,7 @@
 #' }
 install_release <- function(repo) {
 
-  if (!validate_release(repo)) {
+  if (!validate_release(repo)$verified) {
     stop(sprintf("Latest release of '%s' is not signed or non-existent. Aborting installation.", repo))
   }
 
