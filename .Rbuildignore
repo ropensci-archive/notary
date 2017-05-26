@@ -4,3 +4,4 @@
 ^Makefile$
 ^\.travis\.yml$
 ^README\.Rmd$
+^notary\.svg$

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 206 201" width="206pt" height="201pt" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <metadata> Produced by OmniGraffle 7.2.2 
+    <dc:date>2017-05-26 17:45:53 +0000</dc:date>
+  </metadata>
+  <defs>
+    <font-face font-family="Helvetica" font-size="6" units-per-em="1000" underline-position="-75.68359" underline-thickness="49.316406" slope="0" x-height="522.9492" cap-height="717.28516" ascent="770.0195" descent="-229.98047" font-weight="500">
+      <font-face-src>
+        <font-face-name name="Helvetica"/>
+      </font-face-src>
+    </font-face>
+    <font-face font-family="Times" font-size="23.807" units-per-em="1000" underline-position="-75.68359" underline-thickness="49.316406" slope="0" x-height="460.9375" cap-height="675.78125" ascent="750" descent="-250" font-weight="500">
+      <font-face-src>
+        <font-face-name name="Times-Roman"/>
+      </font-face-src>
+    </font-face>
+  </defs>
+  <g stroke="none" stroke-opacity="1" stroke-dasharray="none" fill="none" fill-opacity="1">
+    <title>Canvas 1</title>
+    <rect fill="white" width="206" height="201"/>
+    <g>
+      <title>Layer 1</title>
+      <path d="M 190.04867 101.16667 C 190.04867 148.93867 151.32067 187.66667 103.54867 187.66667 C 55.776667 187.66667 17.048667 148.93867 17.048667 101.16667 C 17.048667 53.394667 55.776667 14.666667 103.54867 14.666667 C 151.32067 14.666667 190.04867 53.394667 190.04867 101.16667 Z" fill="#323433"/>
+      <path d="M 103.97637 181.75167 C 59.58837 181.75167 23.476367 145.64067 23.476367 101.25167 C 23.476367 56.86467 59.58837 20.751667 103.97637 20.751667 C 148.36437 20.751667 184.47637 56.86467 184.47637 101.25167 C 184.47637 145.64067 148.36437 181.75167 103.97637 181.75167 Z" fill="white"/>
+      <path d="M 103.97637 174.75167 C 63.44837 174.75167 30.476367 141.77967 30.476367 101.25167 C 30.476367 60.72467 63.44837 27.751667 103.97637 27.751667 C 144.50437 27.751667 177.47637 60.72467 177.47637 101.25167 C 177.47637 141.77967 144.50437 174.75167 103.97637 174.75167 Z" stroke="#323433" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1"/>
+      <path d="M 103.97637 171.75167 C 65.10237 171.75167 33.476367 140.12567 33.476367 101.25167 C 33.476367 62.37767 65.10237 30.751667 103.97637 30.751667 C 142.85037 30.751667 174.47637 62.37767 174.47637 101.25167 C 174.47637 140.12567 142.85037 171.75167 103.97637 171.75167 Z" stroke="#323433" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1"/>
+      <text transform="translate(81.62877 54.262367)" fill="#323433">
+        <tspan font-family="Helvetica" font-size="6" font-weight="500" fill="#323433" x="0" y="6" textLength="3.0669922">I</tspan>
+        <tspan font-family="Helvetica" font-size="6" font-weight="500" fill="#323433" x="3.0669922" y="6" textLength="5.733008">N</tspan>
+        <tspan font-family="Helvetica" font-size="6" font-weight="500" fill="#323433" x="8.8" y="6" textLength="5.065039">T</tspan>
+        <tspan font-family="Helvetica" font-size="6" font-weight="500" fill="#323433" x="13.865039" y="6" textLength="5.401953">E</tspan>
+        <tspan font-family="Helvetica" font-size="6" font-weight="500" fill="#323433" x="19.266992" y="6" textLength="6.066992">G</tspan>
+        <tspan font-family="Helvetica" font-size="6" font-weight="500" fill="#323433" x="25.333984" y="6" textLength="5.733008">R</tspan>
+        <tspan font-family="Helvetica" font-size="6" font-weight="500" fill="#323433" x="31.066992" y="6" textLength="3.0669922">I</tspan>
+        <tspan font-family="Helvetica" font-size="6" font-weight="500" fill="#323433" x="34.133984" y="6" textLength="5.065039">T</tspan>
+        <tspan font-family="Helvetica" font-size="6" font-weight="500" fill="#323433" x="39.199023" y="6" textLength="5.401953">Y</tspan>
+      </text>
+      <text transform="translate(85.04867 138.16667)" fill="#323433">
+        <tspan font-family="Helvetica" font-size="6" font-weight="500" fill="#323433" x="0" y="6" textLength="3.398047">r</tspan>
+        <tspan font-family="Helvetica" font-size="6" font-weight="500" fill="#323433" x="3.398047" y="6" textLength="6.066992">O</tspan>
+        <tspan font-family="Helvetica" font-size="6" font-weight="500" fill="#323433" x="9.465039" y="6" textLength="4.736914">p</tspan>
+        <tspan font-family="Helvetica" font-size="6" font-weight="500" fill="#323433" x="14.201953" y="6" textLength="4.736914">e</tspan>
+        <tspan font-family="Helvetica" font-size="6" font-weight="500" fill="#323433" x="18.938867" y="6" textLength="4.736914">n</tspan>
+        <tspan font-family="Helvetica" font-size="6" font-weight="500" fill="#323433" x="23.67578" y="6" textLength="5.401953">S</tspan>
+        <tspan font-family="Helvetica" font-size="6" font-weight="500" fill="#323433" x="29.077734" y="6" textLength="4.4">c</tspan>
+        <tspan font-family="Helvetica" font-size="6" font-weight="500" fill="#323433" x="33.477734" y="6" textLength="2.7330078">i</tspan>
+      </text>
+      <rect x="7.666667" y="77.21837" width="192.333" height="46.666" fill="#323433"/>
+      <rect x="7.666667" y="77.21837" width="192.333" height="46.666" stroke="white" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1"/>
+      <text transform="translate(73.47637 83.92937)" fill="white">
+        <tspan font-family="Times" font-size="23.807" font-weight="500" fill="white" x="0" y="23" textLength="60.819445">notary</tspan>
+      </text>
+      <line x1="62.00377" y1="126.01237" x2="146.25377" y2="126.01237" stroke="#323433" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1"/>
+      <line x1="68.94127" y1="131.05437" x2="139.31627" y2="131.05437" stroke="#323433" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1"/>
+      <line x1="76.87877" y1="136.09637" x2="131.37877" y2="136.09637" stroke="#323433" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1"/>
+      <line x1="68.94127" y1="69.84637" x2="139.31627" y2="69.84637" stroke="#323433" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1"/>
+      <line x1="76.87877" y1="64.80437" x2="131.37877" y2="64.80437" stroke="#323433" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1"/>
+      <line x1="85.94417" y1="51.679367" x2="121.44417" y2="51.679367" stroke="#323433" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1"/>
+      <line x1="92.36117" y1="46.512867" x2="115.02717" y2="46.512867" stroke="#323433" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1"/>
+      <line x1="98.19417" y1="41.179367" x2="109.19417" y2="41.179367" stroke="#323433" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1"/>
+      <line x1="85.94417" y1="149.51137" x2="121.44417" y2="149.51137" stroke="#323433" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1"/>
+      <line x1="92.36117" y1="154.67737" x2="115.02717" y2="154.67737" stroke="#323433" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1"/>
+      <line x1="98.19417" y1="160.01137" x2="109.19417" y2="160.01137" stroke="#323433" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1"/>
+      <line x1="61.85137" y1="75.22087" x2="146.10137" y2="75.22087" stroke="#323433" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1"/>
+    </g>
+  </g>
+</svg>
