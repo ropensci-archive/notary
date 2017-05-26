@@ -3,7 +3,13 @@ Type: Package
 Title: Signing and Verification of R Packages
 Version: 0.1.0
 Date: 2017-05-25
-Author: Bob Rudis (bob@rud.is)
+Authors@R: c(
+      person("Rich", "FitzJohn", role="aut"), 
+      person("Oliver", "Keyes", role="aut"),
+      person("Steph", "Locke", role="aut"),
+      person("Jeroen", "Ooms", role="aut"),
+      person("Bob", "Rudis", email="bob@rud.is", role=c("cre", "aut"))
+    )
 Maintainer: Bob Rudis <bob@rud.is>
 Description: Signing and verification of R packages.
 URL: https://github.com/ropenscilabs/notary

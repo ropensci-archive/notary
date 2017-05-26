@@ -2,6 +2,6 @@
 #'
 #' @name notary
 #' @docType package
-#' @author Bob Rudis (bob@@rud.is)
+#' @author Rich FitzJohn, Oliver Keyes, Steph Locke, Jeroen Ooms, Bob Rudis
 #' @import gpg httr remotes sodium
 NULL

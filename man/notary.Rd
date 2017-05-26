@@ -9,5 +9,5 @@
 Tools to Sign and Verify R Packages
 }
 \author{
-Bob Rudis (bob@rud.is)
+Rich FitzJohn, Oliver Keyes, Steph Locke, Jeroen Ooms, Bob Rudis
 }
