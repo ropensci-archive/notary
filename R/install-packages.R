@@ -1,4 +1,20 @@
-install_packages <- function(...) {
+##' Validating version of \code{install.packages}
+##'
+##' @title Install and validate packages
+##' @param ... Arguments passed through to \code{install.packages}
+##' @param pubkey Public key to use
+##' @export
+install_packages <- function(..., pubkey = NULL) {
+  ## TODO: This currently will not work well because we need to work
+  ## out how to deal with more than one key per repo.  This is not
+  ## that hard because we can associate keys like
+  ## list(https://whatever.com=key1, ...) and then look things up.
+  ## Then in the download verification function we find the most
+  ## likely key in the set.  For now, we do it this way:
+  if (!is.null(pubkey)) {
+    oo <- options(notary.cran.pubkey = pubkey)
+    on.exit(options(oo))
+  }
   f <- utils::install.packages
   subs <- list(download.packages = quote(notary::download_packages),
                available.packages = quote(notary::available_packages))
@@ -33,7 +49,7 @@ download_packages <- function(pkgs, destdir, available = NULL,
                               repos = getOption("repos"),
                               contriburl = contrib.url(repos, type),
                               method, type = getOption("pkgType"), ...,
-                              pubkey) {
+                              pubkey = NULL) {
   ## Issues: this will not do well if there is more than one version
   ## for a package because we have to mimic what download.packages
   ## actually does.  If that *is* what we do this probably moves way

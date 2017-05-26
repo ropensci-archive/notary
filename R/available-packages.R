@@ -9,7 +9,7 @@ available_packages <- function(contriburl = contrib.url(repos, type),
                                method, fields = NULL,
                                type = getOption("pkgType"),
                                filters = NULL, repos = getOption("repos"),
-                               pubkey = getOption("notary.cran.pubkey")) {
+                               pubkey = NULL) {
   idx <- vapply(contriburl, package_index_download, character(1),
                 tempfile(), pubkey)
   tmp <- file_url(dirname(idx))
