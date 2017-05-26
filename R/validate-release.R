@@ -59,6 +59,9 @@ validate_release <- function(repo, verbose = TRUE) {
 
   sig_verified_by_github <- identical(verification_info$commit$verification$verified, TRUE)
 
+  # Todo: stuff with user key
+  commit_user <- get_user_key(verification_info$committer$login)
+
   list (
     repo = repo,
     committer = verification_info$commit$committer,
