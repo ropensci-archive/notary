@@ -29,7 +29,7 @@ package_index_add_hash <- function(path) {
 
   dat[, "MD5sum"] <- unname(tools::md5sum(pkg))
   dat[, "SHA256"] <- sha256sum(pkg, FALSE)
-  write.dcf(dat, filename)
+  write.dcf(dat, filename, width = 80)
   write_dcf_gz(dat, paste0(filename, ".gz"))
   rownames(dat) <- dat[, "Package"]
   saveRDS(dat, paste0(filename, ".rds"))
