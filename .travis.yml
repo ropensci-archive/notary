@@ -11,3 +11,5 @@ addons:
     packages:
       - libsodium-dev
       - libssl-dev
+      - libgpgme11-dev
+      - haveged
