@@ -27,7 +27,7 @@ package_index_add_hash <- function(path) {
   }
 
   dat[, "MD5sum"] <- unname(tools::md5sum(pkg))
-  dat[, "SHA256"] <- sha256sum(filename, FALSE)
+  dat[, "SHA256"] <- sha256sum(pkg, FALSE)
   write.dcf(dat, filename)
   write_dcf_gz(dat, paste0(filename, ".gz"))
   rownames(dat) <- dat[, "Package"]

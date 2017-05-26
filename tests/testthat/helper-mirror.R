@@ -31,20 +31,25 @@ copy_directory <- function(from, to) {
 
 make_tests <- function(path = "notary-repos", key = "keys/key") {
   base <- file.path(path, "base")
+  unlink(base, recursive = TRUE)
   make_local_cran(base, key)
 
   ## Break the index:
   index <- file.path(path, "index")
+  unlink(index, recursive = TRUE)
   index_pkg <- file.path(index, "src", "contrib", "PACKAGES")
   copy_directory(base, index)
   d <- read.dcf(index_pkg)
-  d[d[, "Package"] == "R6", "MD5sum"] <- strrep("a", 32)
+  i <- d[, "Package"] == "R6"
+  d[i, "MD5sum"] <- strrep("a", 32)
+  d[i, "SHA256"] <- strrep("a", 64)
   write.dcf(d, index_pkg)
   file.remove(paste0(index_pkg, ".gz"))
   file.remove(paste0(index_pkg, ".rds"))
 
   ## Break the file:
   file <- file.path(path, "file")
+  unlink(file, recursive = TRUE)
   copy_directory(base, file)
   pkg <- dir(file.path(file, "src", "contrib"), pattern = "^R6_",
              full.names = TRUE)
