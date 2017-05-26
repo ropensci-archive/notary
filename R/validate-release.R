@@ -90,7 +90,7 @@ GPG Fingerprint: %s
       Timestamp: %s
            Hash: %s
 Public Key Type: %s
-       Verified: %s\n",
+        Trusted: %s\n",
            x$repo,
            x$tag,
            x$committer$name, x$committer$email,
