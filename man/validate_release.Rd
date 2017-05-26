@@ -2,15 +2,22 @@
 % Please edit documentation in R/validate-release.R
 \name{validate_release}
 \alias{validate_release}
+\alias{print.notify_verify}
 \title{Validate that the current GitHub release is GPG signed}
 \usage{
 validate_release(repo, verbose = TRUE)
+
+\method{print}{notify_verify}(x, ...)
 }
 \arguments{
 \item{repo}{Repository address in the format \code{username/repo}}
 
 \item{verbose}{if \code{TRUE} then a message will be returned with information about
 the signer of the package.}
+
+\item{x}{a \code{notify_verify} object}
+
+\item{...}{unused}
 }
 \description{
 Check that the latest release of the package at \code{username/repo} has been signed.

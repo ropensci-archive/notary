@@ -74,6 +74,7 @@ validate_release <- function(repo, verbose = TRUE) {
 }
 
 #' @md
+#' @rdname validate_release
 #' @param x a `notify_verify` object
 #' @param ... unused
 #' @export
