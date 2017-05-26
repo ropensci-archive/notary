@@ -61,15 +61,14 @@ validate_release <- function(repo, verbose = TRUE) {
 
   list (
     repo = repo,
+    committer = verification_info$commit$committer,
     tag = tags_info[[tag_num]]$name,
     verified = sig_verified_by_github,
     signature = sig_result,
     payload = verification_info$commit$verification$payload
   ) -> ret
 
-  class(ret) <- c("notify_verify", "list")
-
-  ret
+  structure(ret, class = c("notify_verify", "list"))
 
 }
 
@@ -82,6 +81,7 @@ print.notify_verify <- function(x, ...) {
    cat(
      sprintf("   Repo/Package: %s (%s)
 GitHub Verified: %s
+      Committer: %s <%s>
     Fingerprint: %s
       Timestamp: %s
            Hash: %s
@@ -90,6 +90,7 @@ Public Key Type: %s
            x$repo,
            x$tag,
            x$verified %||% FALSE,
+           x$committer$name, x$committer$email,
            x$signature$fingerprint %||% "",
            x$signature$timestamp %||% "",
            x$signature$hash %||% "",
