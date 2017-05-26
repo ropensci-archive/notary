@@ -40,6 +40,8 @@ make_tests <- function(path = "notary-repos", key = "keys/key") {
   d <- read.dcf(index_pkg)
   d[d[, "Package"] == "R6", "MD5sum"] <- strrep("a", 32)
   write.dcf(d, index_pkg)
+  file.remove(paste0(index_pkg, ".gz"))
+  file.remove(paste0(index_pkg, ".rds"))
 
   ## Break the file:
   file <- file.path(path, "file")
