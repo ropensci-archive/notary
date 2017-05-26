@@ -13,7 +13,9 @@ available_packages <- function(contriburl = contrib.url(repos, type),
   idx <- vapply(contriburl, package_index_download, character(1),
                 tempfile(), pubkey)
   tmp <- file_url(dirname(idx))
-  ret <- utils::available.packages(tmp, filters = filters)
+  ret <- utils::available.packages(tmp, filters = filters,
+                                   fields = union(fields, "SHA256"))
+  ret[, "SHA256"] <- trimws(ret[, "SHA256"])
   ret[, "Repository"] <- contriburl[match(ret[, "Repository"], tmp)]
   ret
 }

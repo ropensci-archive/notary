@@ -8,7 +8,8 @@ test_that("file://, all clear", {
   url <- file_url(file.path(TEST_PATH, "base", "src", "contrib"))
   cmp <- available.packages(url)
   d <- available_packages(url, pubkey = PUBKEY)
-  expect_identical(d, cmp)
+  expect_identical(d[, colnames(d) != "SHA256", drop = FALSE], cmp)
+  expect_match(d[, "SHA256"], "^[[:xdigit:]]{64}$")
 })
 
 test_that("file://, tampered index", {
@@ -22,7 +23,8 @@ test_that("https://, all clear", {
   url <- file.path(TEST_URL, "base", "src", "contrib")
   cmp <- available.packages(url)
   d <- available_packages(url, pubkey = PUBKEY)
-  expect_identical(d, cmp)
+  expect_identical(d[, colnames(d) != "SHA256", drop = FALSE], cmp)
+  expect_match(d[, "SHA256"], "^[[:xdigit:]]{64}$")
 })
 
 test_that("https://, tampered index", {

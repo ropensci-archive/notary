@@ -27,8 +27,7 @@ package_index_add_hash <- function(path) {
   }
 
   dat[, "MD5sum"] <- unname(tools::md5sum(pkg))
-  dat[, "SHA256"] <- vapply(filename, sha256sum, character(1),
-                            USE.NAMES = FALSE)
+  dat[, "SHA256"] <- sha256sum(filename, FALSE)
   write.dcf(dat, filename)
   write_dcf_gz(dat, paste0(filename, ".gz"))
   rownames(dat) <- dat[, "Package"]
@@ -41,8 +40,13 @@ package_index_sign <- function(path, key) {
   }
 }
 
-sha256sum <- function(x) {
-  as.character(openssl::sha256(read_bin(x)))
+sha256sum <- function(x, named = TRUE) {
+  hash <- vapply(x, function(f) as.character(openssl::sha256(read_bin(x))),
+                 character(1))
+  if (named) {
+    names(hash) <- x
+  }
+  hash
 }
 
 write_dcf_gz <- function(dat, filename) {
