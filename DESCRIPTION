@@ -23,5 +23,6 @@ Depends:
 Imports:
     gpg,
     httr,
+    sodium,
     remotes
 RoxygenNote: 6.0.1
