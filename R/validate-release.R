@@ -80,17 +80,17 @@ print.notify_verify <- function(x, ...) {
 
    cat(
      sprintf("   Repo/Package: %s (%s)
-GitHub Verified: %s
       Committer: %s <%s>
-    Fingerprint: %s
+GitHub Verified: %s
+GPG Fingerprint: %s
       Timestamp: %s
            Hash: %s
 Public Key Type: %s
        Verified: %s\n",
            x$repo,
            x$tag,
-           x$verified %||% FALSE,
            x$committer$name, x$committer$email,
+           x$verified %||% FALSE,
            x$signature$fingerprint %||% "",
            x$signature$timestamp %||% "",
            x$signature$hash %||% "",
