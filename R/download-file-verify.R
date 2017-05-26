@@ -1,4 +1,4 @@
-download_file_verify <- function(url, destfile, pubkey, method, ...) {
+download_file_verify <- function(url, destfile, pubkey, ...) {
   if (!is.raw(pubkey) && length(pubkey) == 32L) {
     stop("Expected a 32 byte pubk")
   }
@@ -6,13 +6,9 @@ download_file_verify <- function(url, destfile, pubkey, method, ...) {
   pubkey <- get_sodium_pubkey(pubkey)
   if (protocol == "https") {
     path_sig <- tempfile()
-    withCallingHandlers({
-      z <- download.file(paste0(url, ".sig"), destfile = path_sig,
-                         method = method, cacheOK = FALSE, quiet = TRUE,
-                         mode = "wb")
-      z <- download.file(url, destfile, method = method,
-                         cacheOK = FALSE, quiet = TRUE, mode = "wb")
-    }, error = function(e) stop(download_error(e)))
+    method <- "libcurl"
+    z <- download_file(paste0(url, ".sig"), dest = path_sig)
+    z <- download_file(url, dest = destfile)
   } else if (protocol == "file") {
     url <- file_unurl(url)
     path_sig <- paste0(url, ".sig")
@@ -36,6 +32,22 @@ download_file_verify <- function(url, destfile, pubkey, method, ...) {
   withCallingHandlers(sodium::sig_verify(contents, sig, pubkey),
                       error = function(e) stop(verification_error(e)))
   invisible(destfile)
+  }
+
+download_file <- function(url, ..., dest = tempfile(),
+                          verbose = FALSE, overwrite = FALSE) {
+  ## oo <- options(warnPartialMatchArgs = FALSE)
+  ## if (isTRUE(oo$warnPartialMatchArgs)) {
+  ##   on.exit(options(oo))
+  ## }
+  content <- httr::GET(url,
+                       httr::write_disk(dest, overwrite),
+                       if (verbose) httr::progress("down"), ...)
+  code <- httr::status_code(content)
+  if (code != 200L) {
+    stop(download_error(content, code))
+  }
+  dest
 }
 
 uri_protocol <- function(x) {
@@ -46,10 +58,12 @@ uri_protocol <- function(x) {
   sub("^([a-z]+)://.*$", "\\1", x)
 }
 
-download_error <- function(e) {
-  class(e) <- c("download_error", e)
-  e
+download_error <- function(url, code) {
+  msg <- sprintf("Downloading %s failed with code %d", url, code)
+  structure(list(message = msg, call = NULL),
+            class = c("download_error", "error", "condition"))
 }
+
 verification_error <- function(e) {
   class(e) <- c("verification_error", e)
   e
