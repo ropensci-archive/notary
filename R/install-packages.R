@@ -26,6 +26,7 @@ install_packages <- function(...) {
 ##' @param ... Additional arguments passed through to
 ##'   \code{utils::download.packages} (and from there through to
 ##'   \code{download.file}.
+##' @param pubkey Public key used to verify the package index
 ##' @export
 ##' @importFrom utils contrib.url
 download_packages <- function(pkgs, destdir, available = NULL,

@@ -30,6 +30,8 @@ install.}
 \item{...}{Additional arguments passed through to
 \code{utils::download.packages} (and from there through to
 \code{download.file}.}
+
+\item{pubkey}{Public key used to verify the package index}
 }
 \description{
 Version of \code{download.file} that verifies downloads.  All

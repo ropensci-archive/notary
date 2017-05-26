@@ -29,7 +29,7 @@ package_index_download <- function(url, dest_dir, pubkey) {
                      download_error = function(e) e)
     if (!inherits(path, "download_error")) {
       if (u == "PACKAGES.rds") {
-        write.rds(readRDS(path), idx)
+        saveRDS(readRDS(path), idx)
       } else if (u == "PACKAGES.gz") {
         writeLines(readLines(path), idx)
       } else {
