@@ -3,6 +3,7 @@
 #' First tries local `/keybase` filesystem for access. Upon failure, tests for access
 #' via the keybase filesystem web interface.
 #'
+#' @md
 #' @param path file path for existence test
 #' @return `NA` if not found, otherwise the either the filesystem path or URL path
 #' @export
