@@ -1,7 +1,23 @@
 
-[![Project Status: Concept – Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.](http://www.repostatus.org/badges/latest/concept.svg)](http://www.repostatus.org/#concept) [![Travis-CI Build Status](https://travis-ci.org/ropenscilabs/notary.svg?branch=master)](https://travis-ci.org/ropenscilabs/notary)
+<img src="img/notarylogo.png" width="50%" height="50%"/>
 
-<img src="notarylogo.png" width="50%" height="50%"/>
+### Problems
+
+![](img/problems.png)
+
+### Solutions (current)
+
+**GitHub**
+
+-   Only install signed releases
+-   Verify release signatures
+
+**CRAN**
+
+-   Reimagining integrity mirror integrity
+
+<hr noshade size="0.5"/>
+[![Project Status: Concept – Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.](http://www.repostatus.org/badges/latest/concept.svg)](http://www.repostatus.org/#concept) [![Travis-CI Build Status](https://travis-ci.org/ropenscilabs/notary.svg?branch=master)](https://travis-ci.org/ropenscilabs/notary)
 
 `notary` : Signing and Verification of R Packages
 
