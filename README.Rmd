@@ -1,6 +1,10 @@
 ---
 output: rmarkdown::github_document
 ---
+```{r include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+options(width = 120)
+```
 
 [![Project Status: Concept – Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.](http://www.repostatus.org/badges/latest/concept.svg)](http://www.repostatus.org/#concept)
 [![Travis-CI Build Status](https://travis-ci.org/ropenscilabs/notary.svg?branch=master)](https://travis-ci.org/ropenscilabs/notary)
@@ -9,17 +13,28 @@ output: rmarkdown::github_document
 
 ### Methods
 
-- `install_release`:	Validate that the current release is signed and install it if so
-- `validate_release`:	Validate that the latest release of a GitHub pacakge is
+- `install_release`:	Validate that the current GitHub release is GPG signed and install it if so
+- `validate_release`:	Validate that the current GitHub release is GPG signed
+- `retrieve_release_signature`:	Retrieve the GitHub signing information for the latest release of a package
+- `get_tags`:	Retrieve a data frame of GitHub package tag (release) info
 
 ### Usage
 
-```{r}
+```{r message=FALSE}
 library(notary)
+library(tidyverse)
+```
 
+```{r}
 validate_release("hrbrmstr/hrbrthemes")
 
 validate_release("ironholds/rgeolocate")
+
+retrieve_release_signature("hrbrmstr/ggalt")
+
+glimpse(get_tags("hrbrmstr/hrbrthemes"))
+
+get_tags("tidyverse/dplyr")
 ```
 
 ```{r echo=FALSE, eval=FALSE}

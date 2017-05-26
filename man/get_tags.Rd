@@ -12,3 +12,6 @@ get_tags(repo)
 \description{
 Retrieve a data frame of GitHub package tag (release) info
 }
+\examples{
+get_tags("hrbrmstr/hrbrthemes")
+}

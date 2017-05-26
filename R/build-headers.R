@@ -1,4 +1,4 @@
-#' Build request headers
+# Build request headers
 build_headers <- function() {
 
   hdrs <- c(Accept="application/vnd.github.cryptographer-preview")

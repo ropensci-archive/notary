@@ -8,10 +8,10 @@
 #'     the signer of the package.
 #' @export
 #' @examples
-#' retrive_release_signature("hrbrmstr/hrbrthemes")
+#' retrieve_release_signature("hrbrmstr/hrbrthemes")
 #'
-#' retrive_release_signature("ironholds/rgeolocate")
-retrive_release_signature <- function(repo, verbose = TRUE) {
+#' retrieve_release_signature("ironholds/rgeolocate")
+retrieve_release_signature <- function(repo, verbose = TRUE) {
 
   repo_info <- strsplit(repo, "/")[[1]]
 
