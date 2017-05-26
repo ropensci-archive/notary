@@ -39,7 +39,7 @@ make_tests <- function(path = "notary-repos") {
 
   ## Break the index:
   index <- file.path(path, "index")
-  index_pkg <- file.path(base, "src", "contrib", "PACKAGES")
+  index_pkg <- file.path(index, "src", "contrib", "PACKAGES")
   copy_directory(base, index)
   d <- read.dcf(index_pkg)
   d[d[, "Package"] == "R6", "MD5sum"] <- strrep("a", 32)
@@ -52,4 +52,9 @@ make_tests <- function(path = "notary-repos") {
              full.names = TRUE)
   dat <- read_bin(pkg)
   writeBin(c(dat, as.raw(0)), pkg)
+  path
 }
+
+TEST_PATH <- "notary-repos"
+TEST_URL <- "https://ropenscilabs.github.io/notary-repos"
+PUBKEY <- "keys/pub"

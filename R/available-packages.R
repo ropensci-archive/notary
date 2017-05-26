@@ -25,7 +25,7 @@ package_index_download <- function(url, dest_dir, pubkey) {
   ## TODO: this could be simplified for the file ones because we don't
   ## usually need to copy them around.
   for (u in index_filename(url, protocol)) {
-    path <- tryCatch(download_file_verify(url, tempfile(), pubkey, method),
+    path <- tryCatch(download_file_verify(u, tempfile(), pubkey),
                      download_error = function(e) e)
     if (!inherits(path, "download_error")) {
       if (u == "PACKAGES.rds") {
@@ -37,9 +37,6 @@ package_index_download <- function(url, dest_dir, pubkey) {
       }
       unlink(path)
       break
-    }
-    if (file.exists(path)) {
-      unlink(path)
     }
   }
   if (inherits(path, "download_error")) {
