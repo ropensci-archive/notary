@@ -2,7 +2,7 @@
 % Please edit documentation in R/install-release.R
 \name{install_release}
 \alias{install_release}
-\title{Validate that the current release is signed and install it if so}
+\title{Validate that the current GitHub release is GPG signed and install it if so}
 \usage{
 install_release(repo)
 }
@@ -10,7 +10,7 @@ install_release(repo)
 \item{repo}{Repository address in the format \code{username/repo}}
 }
 \description{
-Validate that the current release is signed and install it if so
+Validate that the current GitHub release is GPG signed and install it if so
 }
 \examples{
 \dontrun{

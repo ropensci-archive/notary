@@ -1,4 +1,4 @@
-#' Validate that the current release is signed and install it if so
+#' Validate that the current GitHub release is GPG signed and install it if so
 #'
 #' @md
 #' @param repo Repository address in the format `username/repo`
@@ -12,7 +12,7 @@
 install_release <- function(repo) {
 
   if (!validate_release(repo)) {
-    stop(sprintf("Latest release of '%s' is not signed. Aborting installation.", repo))
+    stop(sprintf("Latest release of '%s' is not signed or non-existent. Aborting installation.", repo))
   }
 
   repo_info <- strsplit(repo, "/")[[1]]

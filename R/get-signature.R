@@ -1,4 +1,4 @@
-#' Validate that the current GitHub release is GPG signed
+#' Retrieve the GitHub signing information for the latest release of a package
 #'
 #' Check that the latest release of the package at `username/repo` has been signed.
 #'
@@ -8,10 +8,10 @@
 #'     the signer of the package.
 #' @export
 #' @examples
-#' validate_release("hrbrmstr/hrbrthemes")
+#' retrive_release_signature("hrbrmstr/hrbrthemes")
 #'
-#' validate_release("ironholds/rgeolocate")
-validate_release <- function(repo, verbose = TRUE) {
+#' retrive_release_signature("ironholds/rgeolocate")
+retrive_release_signature <- function(repo, verbose = TRUE) {
 
   repo_info <- strsplit(repo, "/")[[1]]
 
@@ -26,7 +26,7 @@ validate_release <- function(repo, verbose = TRUE) {
 
   if (length(releases_info) == 0) {
     message("No releases found")
-    return(invisible(FALSE))
+    return(NULL)
   }
 
   httr::GET(releases_info[[1]]$url, add_headers(.headers = build_headers())) -> res
@@ -53,13 +53,12 @@ validate_release <- function(repo, verbose = TRUE) {
   if ((length(verification_info$commit$verification$verified) > 0) &&
       verification_info$commit$verification$verified == TRUE) {
 
-    message(str(verification_info$commit$verification))
-
-    return(TRUE)
+    return(verification_info$commit$verification)
 
   } else {
 
-    return(FALSE)
+    message("Latest release is not signed or has not been verified")
+    return(NULL)
 
   }
 
