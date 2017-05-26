@@ -96,6 +96,9 @@ get_sodium_pubkey <- function(x) {
       stop("'x' must be an existing file")
     }
     x <- get_sodium_pubkey(read_bin(x))
+  } else if (is.null(x)) {
+    x <- get_sodium_pubkey(getOption("notary.cran.pubkey",
+                                     stop("Default key not set")))
   } else {
     stop("Invalid key input")
   }
