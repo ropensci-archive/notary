@@ -34,7 +34,6 @@ copy_directory <- function(from, to) {
 }
 
 make_tests <- function(path = "notary-repos") {
-  unlink(path, recursive = TRUE)
   base <- file.path(path, "base")
   make_local_cran(base)
 
