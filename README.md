@@ -27,13 +27,23 @@
 
 More for users:
 
+CRAN-ish
+
 -   `install_packages`: Install and verify packages
 -   `download_packages`: Download and verify packages
 -   `available_packages`: Download and verify package indices
+
+GitHub-ish
+
 -   `install_release`: Validate that the current GitHub release is GPG signed and install it if so
 -   `validate_release`: Validate that the current GitHub release is GPG signed
 -   `retrieve_release_signature`: Retrieve the GitHub signing information for the latest release of a package
 -   `get_tags`: Retrieve a data frame of GitHub package tag (release) info
+
+`source()`-ish
+
+-   `source_safe_sign`: Source a file with verification
+-   `sys_source_safe_sign`: Source a file with verification
 
 More for plumbers:
 

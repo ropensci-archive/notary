@@ -6,3 +6,4 @@
 ^README\.Rmd$
 ^img/.*$
 ^appveyor\.yml$
+^\.httr-oauth$
