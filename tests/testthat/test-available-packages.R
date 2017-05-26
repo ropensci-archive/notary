@@ -27,7 +27,7 @@ test_that("https://, all clear", {
 
 test_that("https://, tampered index", {
   url <- file.path(TEST_URL, "index", "src", "contrib")
-  cmp <- available.packages(url)
+  cmp <- suppressWarnings(available.packages(url))
   expect_error(available_packages(url, pubkey = PUBKEY),
                "Signature verification failed")
 })
