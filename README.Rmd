@@ -34,7 +34,9 @@ options(width = 120)
 
 ### Methods
 
+- `install_packages`: Install and verify packages
 - `download_packages`:	Download and verify packages
+- `available_packages`: Download and verify package indices
 - `install_release`:	Validate that the current GitHub release is GPG signed and install it if so
 - `validate_release`:	Validate that the current GitHub release is GPG signed
 - `retrieve_release_signature`:	Retrieve the GitHub signing information for the latest release of a package
