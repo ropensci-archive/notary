@@ -6,7 +6,7 @@
 \usage{
 download_packages(pkgs, destdir, available = NULL,
   repos = getOption("repos"), contriburl = contrib.url(repos, type), method,
-  type = getOption("pkgType"), ...)
+  type = getOption("pkgType"), ..., pubkey)
 }
 \arguments{
 \item{pkgs}{Character vector of packages to download}
