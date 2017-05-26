@@ -25,6 +25,8 @@
 
 ### Methods
 
+More for users:
+
 -   `install_packages`: Install and verify packages
 -   `download_packages`: Download and verify packages
 -   `available_packages`: Download and verify package indices
@@ -32,6 +34,10 @@
 -   `validate_release`: Validate that the current GitHub release is GPG signed
 -   `retrieve_release_signature`: Retrieve the GitHub signing information for the latest release of a package
 -   `get_tags`: Retrieve a data frame of GitHub package tag (release) info
+
+More for plumbers:
+
+-   `package_index_prepare`: Prepare a package index
 
 ### Usage
 
@@ -45,8 +51,8 @@ validate_release("hrbrmstr/hrbrthemes")
 ##    Repo/Package: hrbrmstr/hrbrthemes (v0.3.0)
 ##       Committer: Bob Rudis <bob@rud.is>
 ## GitHub Verified: TRUE
-## GPG Fingerprint: 2A514A4997464560
-##    Trusted peer: FALSE
+## GPG Fingerprint: 3773E53B2013A722FA67C6F02A514A4997464560
+##    Trusted peer: TRUE
 ##       Timestamp: 2017-05-10 11:15:21
 ##       Algorithm: RSA + SHA256
 

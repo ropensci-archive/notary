@@ -10,10 +10,10 @@ kb_file_exists(x)
 \item{path}{file path for existence test}
 }
 \value{
-`NA` if not found, otherwise the either the filesystem path or URL path
+\code{NA} if not found, otherwise the either the filesystem path or URL path
 }
 \description{
-First tries local `/keybase` filesystem for access. Upon failure, tests for access
+First tries local \code{/keybase} filesystem for access. Upon failure, tests for access
 via the keybase filesystem web interface.
 }
 \examples{
