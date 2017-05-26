@@ -3,3 +3,4 @@
 ^CONDUCT\.md$
 ^Makefile$
 ^\.travis\.yml$
+^README\.Rmd$

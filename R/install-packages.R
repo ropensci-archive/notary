@@ -6,6 +6,28 @@ install_packages <- function(...) {
   f(...)
 }
 
+##' Version of \code{download.file} that verifies downloads.  All
+##' arguments are passed through to \code{utils::download.packages}
+##' verbatim and the documentation there should be consulted for the
+##' meaning of arguments.
+##'
+##' @title Download and verify packages
+##' @param pkgs Character vector of packages to download
+##' @param destdir Destination directory
+##' @param available Set of available packages, as created by
+##'   \code{available.packages}
+##' @param repos Character vector of base URL(s) of repositories
+##'   (passed through to \code{available.packages}.
+##' @param contriburl URL(s) of the contrib sections of the
+##'   repositories
+##' @param method Download method
+##' @param type character string, indicating which type of packages to
+##'   install.
+##' @param ... Additional arguments passed through to
+##'   \code{utils::download.packages} (and from there through to
+##'   \code{download.file}.
+##' @export
+##' @importFrom utils contrib.url
 download_packages <- function(pkgs, destdir, available = NULL,
                               repos = getOption("repos"),
                               contriburl = contrib.url(repos, type),
@@ -16,12 +38,16 @@ download_packages <- function(pkgs, destdir, available = NULL,
   ## from mimicing an interface to using actual code in which case we
   ## need to be careful with licence and copyright.
   if (is.null(available)) {
-    available <- available.packages(contriburl = contriburl, method = method)
+    available <- utils::available.packages(contriburl = contriburl,
+                                           method = method)
   }
   ret <- utils::download.packages(pkgs, destdir, available, repos, contriburl,
                                   method, type)
-  rcv <- tools::md5sum(ret[, 2])
   exp <- available[ret[, 1], "MD5sum"]
+  if (any(is.na(exp))) {
+    stop("This mirror does not provide MD5 sums of packages")
+  }
+  rcv <- tools::md5sum(ret[, 2])
   err <- rcv != exp
   if (any(err)) {
     stop("WHOA THERE! Package hash was not expected for ",

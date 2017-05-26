@@ -5,7 +5,7 @@ Version: 0.1.0
 Date: 2017-05-25
 Author: Bob Rudis (bob@rud.is)
 Maintainer: Bob Rudis <bob@rud.is>
-Description: Signing and Verification of R Packages
+Description: Signing and verification of R packages.
 URL: https://github.com/ropenscilabs/notary
 BugReports: https://github.com/ropenscilabs/notary/issues
 License: MIT + file LICENSE
