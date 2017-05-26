@@ -19,13 +19,15 @@
 <hr noshade size="0.5"/>
  
 
-[![Project Status: Concept – Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.](http://www.repostatus.org/badges/latest/concept.svg)](http://www.repostatus.org/#concept) [![Travis-CI Build Status](https://travis-ci.org/ropenscilabs/notary.svg?branch=master)](https://travis-ci.org/ropenscilabs/notary)
+[![Project Status: Concept – Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.](http://www.repostatus.org/badges/latest/concept.svg)](http://www.repostatus.org/#concept) [![Travis-CI Build Status](https://travis-ci.org/ropenscilabs/notary.svg?branch=master)](https://travis-ci.org/ropenscilabs/notary) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ropenscilabs/notary?branch=master&svg=true)](https://ci.appveyor.com/project/jeroen/notary)
 
 `notary` : Signing and Verification of R Packages
 
 ### Methods
 
+-   `install_packages`: Install and verify packages
 -   `download_packages`: Download and verify packages
+-   `available_packages`: Download and verify package indices
 -   `install_release`: Validate that the current GitHub release is GPG signed and install it if so
 -   `validate_release`: Validate that the current GitHub release is GPG signed
 -   `retrieve_release_signature`: Retrieve the GitHub signing information for the latest release of a package
@@ -41,21 +43,21 @@ library(tidyverse)
 ``` r
 validate_release("hrbrmstr/hrbrthemes")
 ##    Repo/Package: hrbrmstr/hrbrthemes (v0.3.0)
+##       Committer: Bob Rudis <bob@rud.is>
 ## GitHub Verified: TRUE
-##     Fingerprint: 3773E53B2013A722FA67C6F02A514A4997464560
+## GPG Fingerprint: 2A514A4997464560
+##    Trusted peer: FALSE
 ##       Timestamp: 2017-05-10 11:15:21
-##            Hash: SHA256
-## Public Key Type: RSA
-##        Verified: TRUE
+##       Algorithm: RSA + SHA256
 
 validate_release("ironholds/rgeolocate")
 ##    Repo/Package: ironholds/rgeolocate (0.8.0)
+##       Committer: Oliver Keyes <ironholds@gmail.com>
 ## GitHub Verified: FALSE
-##     Fingerprint: 
+## GPG Fingerprint: 
+##    Trusted peer: 
 ##       Timestamp: 
-##            Hash: 
-## Public Key Type: 
-##        Verified:
+##       Algorithm:  +
 
 retrieve_release_signature("hrbrmstr/ggalt")
 ## Latest release is not signed or has not been verified
