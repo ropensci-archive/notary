@@ -62,11 +62,12 @@ download_packages <- function(pkgs, destdir, available = NULL,
   }
   ret <- utils::download.packages(pkgs, destdir, available, repos, contriburl,
                                   method, type)
-  exp <- available[ret[, 1], "MD5sum"]
+  exp <- available[ret[, 1], "SHA256"]
   if (any(is.na(exp))) {
-    stop("This mirror does not provide MD5 sums of packages")
+    stop("This mirror does not provide SHA256 hashes of packages")
   }
-  rcv <- tools::md5sum(ret[, 2])
+  tools::md5sum(ret[, 2])
+  rcv <- sha256sum(ret[, 2], named = FALSE)
   err <- rcv != exp
   if (any(err)) {
     stop("WHOA THERE! Package hash was not expected for ",

@@ -41,12 +41,8 @@ package_index_sign <- function(path, key) {
 }
 
 sha256sum <- function(x, named = TRUE) {
-  hash <- vapply(x, function(f) as.character(openssl::sha256(read_bin(x))),
-                 character(1))
-  if (named) {
-    names(hash) <- x
-  }
-  hash
+  vapply(x, function(f) as.character(openssl::sha256(read_bin(x))),
+         character(1), USE.NAMES = named)
 }
 
 write_dcf_gz <- function(dat, filename) {

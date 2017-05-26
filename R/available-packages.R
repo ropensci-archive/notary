@@ -27,6 +27,9 @@ available_packages <- function(contriburl = contrib.url(repos, type),
   tmp <- file_url(dirname(idx))
   ret <- utils::available.packages(tmp, filters = filters,
                                    fields = union(fields, "SHA256"))
+  if (any(is.na(ret[, "SHA256"]))) {
+    stop("Package index does not include SHA256")
+  }
   ret[, "SHA256"] <- trimws(ret[, "SHA256"])
   ret[, "Repository"] <- contriburl[match(ret[, "Repository"], tmp)]
   ret
