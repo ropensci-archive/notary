@@ -19,23 +19,19 @@ make_local_cran <- function(path = "local_cran", key = "keys/key") {
   ## TODO: we could do more than this with a SHA256 hash not MD5, but
   ## this works with existing tooling.
   tools::write_PACKAGES(dest, type = "source")
-  file.remove(file.path(dest, "PACKAGES.gz"))
-
-  idx <- file.path(dest, "PACKAGES")
-  msg <- readBin(idx, raw(), file.size(idx))
-  sig <- sodium::sig_sign(msg, read_bin(key))
-  writeBin(sig, paste0(idx, ".sig"))
+  package_index_prepare(dest, key)
   on.exit()
 }
 
 copy_directory <- function(from, to) {
   dir.create(to, FALSE, TRUE)
   file.copy(dir(from, full.names = TRUE), to, recursive = TRUE)
+  invisible(to)
 }
 
-make_tests <- function(path = "notary-repos") {
+make_tests <- function(path = "notary-repos", key = "keys/key") {
   base <- file.path(path, "base")
-  make_local_cran(base)
+  make_local_cran(base, key)
 
   ## Break the index:
   index <- file.path(path, "index")
