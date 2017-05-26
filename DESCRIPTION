@@ -8,7 +8,7 @@ Maintainer: Bob Rudis <bob@rud.is>
 Description: Signing and Verification of R Packages
 URL: https://github.com/ropenscilabs/notary
 BugReports: https://github.com/ropenscilabs/notary/issues
-License: MIT
+License: MIT + file LICENSE
 Suggests:
     testthat,
     covr
