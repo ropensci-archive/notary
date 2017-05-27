@@ -56,11 +56,8 @@ More for plumbers:
 ### A gif is worth a thousand words
 
 <https://rud.is/dl/notary.gif>
-<<<<<<< HEAD
 
 ![](img/smaller.gif)
-=======
->>>>>>> 48b66e3e4ffa69e67d55fbadd9e2149ea27a1e44
 
 ### Usage
 
