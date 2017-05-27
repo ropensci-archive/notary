@@ -55,7 +55,9 @@ More for plumbers:
 
 ### A gif is worth a thousand words
 
-![](https://rud.is/dl/notary.gif)
+<https://rud.is/dl/notary.gif>
+
+![](img/smaller.gif)
 
 ### Usage
 
