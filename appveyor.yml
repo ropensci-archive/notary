@@ -10,10 +10,11 @@ init:
 install:
   ps: Bootstrap
 
-cache:
-  - C:\RLibrary
-
 # Adapt as necessary starting from here
+
+environment:
+  GITHUB_PAT:
+    secure: WYRSy0yB0ur1KNYIDgPH8Z1mb7biDQkeBrU6KQQxO1nO0mWnSkK+jIcRgHL6TuNd
 
 build_script:
   - travis-tool.sh install_deps
