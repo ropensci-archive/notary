@@ -53,6 +53,11 @@ write_dcf_gz <- function(dat, filename) {
   write.dcf(dat, con)
 }
 
+#' Sign a file with `sodium` key
+#'
+#' @param filename path to file to sign
+#' @param key key to use for signing
+#' @export
 sign_file <- function(filename, key) {
   if (is.character(key)) {
     key <- read_bin(key)

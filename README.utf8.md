@@ -1,3 +1,9 @@
+---
+output: rmarkdown::github_document
+editor_options: 
+  chunk_output_type: console
+---
+
 
 <img src="img/notarylogo.png" width="50%" height="50%"/>
 
@@ -9,17 +15,20 @@
 
 **GitHub**
 
--   Only install signed releases
--   Verify release signatures
+- Only install signed releases
+- Verify release signatures
 
 **CRAN**
 
--   Reimagining integrity mirror integrity
+- Reimagining integrity mirror integrity
 
 <hr noshade size="0.5"/>
- 
 
-[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip) [![Travis-CI Build Status](https://travis-ci.org/ropenscilabs/notary.svg?branch=master)](https://travis-ci.org/ropenscilabs/notary) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ropenscilabs/notary?branch=master&svg=true)](https://ci.appveyor.com/project/jeroen/notary)
+ &nbsp;
+
+[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip) 
+[![Travis-CI Build Status](https://travis-ci.org/ropenscilabs/notary.svg?branch=master)](https://travis-ci.org/ropenscilabs/notary)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ropenscilabs/notary?branch=master&svg=true)](https://ci.appveyor.com/project/jeroen/notary)
 
 `notary` : Signing and Verification of R Packages
 
@@ -29,27 +38,27 @@ More for users:
 
 CRAN-ish
 
--   `install_packages`: Install and verify packages
--   `download_packages`: Download and verify packages
--   `available_packages`: Download and verify package indices
+- `install_packages`: Install and verify packages
+- `download_packages`:	Download and verify packages
+- `available_packages`: Download and verify package indices
 
 GitHub-ish
 
--   `install_release`: Validate that the current GitHub release is GPG signed and install it if so
--   `validate_release`: Validate that the current GitHub release is GPG signed
--   `retrieve_release_signature`: Retrieve the GitHub signing information for the latest release of a package
--   `get_tags`: Retrieve a data frame of GitHub package tag (release) info
+- `install_release`:	Validate that the current GitHub release is GPG signed and install it if so
+- `validate_release`:	Validate that the current GitHub release is GPG signed
+- `retrieve_release_signature`:	Retrieve the GitHub signing information for the latest release of a package
+- `get_tags`:	Retrieve a data frame of GitHub package tag (release) info
 
 `source()`-ish
 
--   `source_safe_sign`: Source a file with verification
--   `sys_source_safe_sign`: Source a file with verification
+- `source_safe_sign`:	Source a file with verification
+- `sys_source_safe_sign`:	Source a file with verification
 
 More for plumbers:
 
--   `package_index_prepare`: Prepare a package index
+- `package_index_prepare`:	Prepare a package index
 
-### The Book of R \[Security\]
+### The Book of R [Security]
 
 <https://ropenscilabs.github.io/r-security-practices/index.html>
 
@@ -59,12 +68,14 @@ More for plumbers:
 
 ### Usage
 
-``` r
+
+```r
 library(notary)
 library(tidyverse)
 ```
 
-``` r
+
+```r
 validate_release("hrbrmstr/hrbrthemes")
 ##    Repo/Package: hrbrmstr/hrbrthemes (v0.3.0)
 ##       Committer: Bob Rudis <bob@rud.is>
@@ -119,6 +130,8 @@ get_tags("tidyverse/dplyr")
 ## 13 tidyverse dplyr         v0.1.1 Romain François romain@r-enthusiasts.com    FALSE   <NA>      <NA>    <NA>
 ## 14 tidyverse dplyr           v0.1          hadley      h.wickham@gmail.com    FALSE   <NA>      <NA>    <NA>
 ```
+
+
 
 ### Code of Coduct
 

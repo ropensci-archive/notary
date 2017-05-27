@@ -29,7 +29,7 @@ options(width = 120)
 
  &nbsp;
 
-[![Project Status: Concept – Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.](http://www.repostatus.org/badges/latest/concept.svg)](http://www.repostatus.org/#concept)
+[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip) 
 [![Travis-CI Build Status](https://travis-ci.org/ropenscilabs/notary.svg?branch=master)](https://travis-ci.org/ropenscilabs/notary)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ropenscilabs/notary?branch=master&svg=true)](https://ci.appveyor.com/project/jeroen/notary)
 
@@ -60,6 +60,14 @@ GitHub-ish
 More for plumbers:
 
 - `package_index_prepare`:	Prepare a package index
+
+### The Book of R [Security]
+
+<https://ropenscilabs.github.io/r-security-practices/index.html>
+
+### A gif is worth a thousand words
+
+![](https://rud.is/dl/notary.gif)
 
 ### Usage
 
